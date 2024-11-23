@@ -2,3 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+.main-background {
+    background-color: #222; /* Very dark gray */
+    background-image: 
+      linear-gradient(335deg, rgba(128, 0, 0, 0.3) 23px, transparent 23px),
+      linear-gradient(155deg, rgba(153, 0, 0, 0.3) 23px, transparent 23px),
+      linear-gradient(335deg, rgba(128, 0, 0, 0.3) 23px, transparent 23px),
+      linear-gradient(155deg, rgba(153, 0, 0, 0.3) 23px, transparent 23px);
+    background-size: 58px 58px;
+    background-position: 0px 2px, 4px 35px, 29px 31px, 34px 6px;
+    
+}
+
+
+@layer utilities {
+    .malcolm-glow-border-lg {
+      @apply shadow-[inset_1px_1px_10px_1px_rgba(255,255,255,0.7)];
+    }
+    .malcolm-glow-border-sm {
+        @apply shadow-[inset_1px_1px_10px_1px_rgba(255,255,255,0.1)];
+    }
+    .malcolm-glow-border-md {
+        @apply shadow-[insert_0px_0px_10px_3px_rgba(255,255,255,0.5)];
+    }
+
+    .malcolm-hover-shadow-lg {
+        @apply  hover:shadow-[inset_0px_0px_20px_5px_rgba(255,255,255,0.7)];
+      }
+
+
+    .malcolm-hover-shadow-sm{
+      @apply transition-shadow duration-300 ease-in-out hover:shadow-[0px_0px_10px_3px_rgba(255,255,255,0.5)];
+    }
+
+    .malcolm-drop-shadow {
+      @apply filter drop-shadow-[4px_4px_3px_black];
+    }
+  }

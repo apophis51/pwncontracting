@@ -1,9 +1,17 @@
 import Image from "next/image";
+import ReactMarkdown from 'react-markdown';
 
-export default function Home() {
+
+export default async function Home() {
+
+   // Fetch the Markdown file from a URL or local server
+   const res = await fetch('http://localhost:3000/VettingSubContractors.md');
+   const markdownContent = await res.text();
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="pt-2">
+      <main className="bg-white p-10 px-40 prose prose-lg max-w-none">
+      <ReactMarkdown>{markdownContent}</ReactMarkdown>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a

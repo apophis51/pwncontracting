@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { NavBar } from "@/public/components/NavBar";
 import "./globals.css";
 
 
@@ -16,9 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={``}
+        className={`flex flex-col min-h-screen px-[10%] py-[2%] justify-start items-center main-background`}
       >
-        {children}
+          <NavBar />
+          {children}
       </body>
     </html>
   );
