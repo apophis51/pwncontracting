@@ -1,16 +1,19 @@
 import Image from "next/image";
 import ReactMarkdown from 'react-markdown';
-
+import fs from "fs";
+import path from "path";
 
 export default async function Home() {
 
    // Fetch the Markdown file from a URL or local server
-   const baseURL = `https://${process.env.VERCEL_URL}` || 'http://localhost:3000';
-    const filePath = `${baseURL}/VettingSubContractors.md`;
-   const res = await fetch(filePath);
-   console.log(res)
-   const markdownContent = await res.text();
+  //  const baseURL = `https://${process.env.VERCEL_URL}` || 'http://localhost:3000';
+  //   const filePath = `${baseURL}/VettingSubContractors.md`;
+  //  const res = await fetch(filePath);
+  //  console.log(res)
+  //  const markdownContent = await res.text();
 
+  const filePath = path.join(process.cwd(), "public", "VettingSubContractors.md");
+    const markdownContent = fs.readFileSync(filePath, "utf8");
   return (
     <div className="pt-2">
       <main className="bg-white p-10 px-40 prose prose-lg max-w-none">
