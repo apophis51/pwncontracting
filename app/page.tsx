@@ -5,7 +5,10 @@ import ReactMarkdown from 'react-markdown';
 export default async function Home() {
 
    // Fetch the Markdown file from a URL or local server
-   const res = await fetch('http://localhost:3000/VettingSubContractors.md');
+   const baseURL = `https://${process.env.VERCEL_URL}` || 'http://localhost:3000';
+    const filePath = `${baseURL}/VettingSubContractors.md`;
+   const res = await fetch(filePath);
+   console.log(res)
    const markdownContent = await res.text();
 
   return (
