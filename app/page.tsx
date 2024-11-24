@@ -16,7 +16,7 @@ export default async function Home() {
     const markdownContent = fs.readFileSync(filePath, "utf8");
   return (
     <div className="pt-2">
-      <main className="bg-white p-10 px-40 prose prose-lg max-w-none">
+      <main className="bg-white p-10 px-80 prose prose-md max-w-none">
       <ReactMarkdown>{markdownContent}</ReactMarkdown>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
