@@ -69,11 +69,10 @@ export default function BlogRenderConstructionBlogs({data}) {
                             <div key={blog.id} className="  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                 <div className="p-5 min-w-[300px] min-h-[50vh] max-w-[50px] max-h-[50px] overflow-y-auto">
                                     <Link href={`/AdminDash/EditBlogByID/${blog.id}`}>
-                                        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Title is: {blog.Title}Type is: {blog.BlogType}</h5>
-                                    </Link>
                                     <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 prose prose-sm">
                                         <ReactMarkdown>{blog.MarkdownContent}</ReactMarkdown>
                                     </p>
+                                       </Link>
                                 </div>
                             </div>
                         ))}
