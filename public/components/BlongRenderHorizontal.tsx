@@ -14,7 +14,6 @@ interface Blog {
     MarkdownContent: string;
 }
 
-
 export default function BlogRenderConstructionBlogs({data}) {
 
     console.log('attempting to render Horizontal Blogs')
@@ -55,7 +54,7 @@ export default function BlogRenderConstructionBlogs({data}) {
 
             <div className="">
                 {/* Scrollable Container */}
-                <div className="flex justify-center items-center gap-5 md:gap-12">
+                <div className="flex justify-center items-center gap-5 md:gap-12 bg-green-400 px-10">
                     <button
                         onClick={scrollLeft}
                         className="z-10 p-2 bg-gray-800 text-white rounded-full focus:outline-none h-[60px]"
@@ -64,7 +63,7 @@ export default function BlogRenderConstructionBlogs({data}) {
                     </button>
                     <div
                         ref={scrollContainerRef}
-                        className='flex flex-row justify-between items-center gap-2 min-h-[70vh] min-w-[65vw] bg-green-400 overflow-x-auto px-4 ' >
+                        className='flex flex-row justify-between items-center gap-2 min-h-[70vh] min-w-[65vw] overflow-x-auto px-4 ' >
                         {/* <p className='bg-white text-black  '>We Could Not Render Anything </p> */}
                         {data.map((blog: Blog) => (
                             <div key={blog.id} className="  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

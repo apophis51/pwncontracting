@@ -17,10 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`flex flex-col min-h-screen px-[10%] py-[2%] justify-start items-center main-background`}
+        className={`flex flex-col  py-[2%]  items-center main-background`}
       >
+        <div className="max-w-[80%] bg-white">
           <NavBar />
           {children}
+          </div>
       </body>
     </html>
   );
