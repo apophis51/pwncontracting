@@ -19,7 +19,7 @@ export default function RootLayout({
       <body
         className={`flex flex-col  py-[2%]  items-center main-background`}
       >
-        <div className="max-w-[80%] bg-white">
+        <div className="w-[80%] bg-white">
           <NavBar />
           {children}
           </div>
