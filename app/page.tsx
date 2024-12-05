@@ -27,8 +27,8 @@ export default async function Home() {
   const constructionBlogs = await serverGetBlogs()
   const mainBlog = constructionBlogs[0]
 
-  const filePath = path.join(process.cwd(), "public", "VettingSubContractors.md");
-  const markdownContent = fs.readFileSync(filePath, "utf8");
+  // const filePath = path.join(process.cwd(), "public", "VettingSubContractors.md");
+  // const markdownContent = fs.readFileSync(filePath, "utf8");
   return (
     <div className="pt-2 ">
       <main className="bg-white p-10 px-80 prose prose-md max-w-none ">
@@ -39,7 +39,7 @@ export default async function Home() {
 
       </main>
       <section>
-        <BlogRenderHorizontal data={constructionBlogs} />
+        <BlogRenderHorizontal data={constructionBlogs} linkPath={'/blogs'}/>
       </section>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a

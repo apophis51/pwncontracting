@@ -14,7 +14,7 @@ interface Blog {
     MarkdownContent: string;
 }
 
-export default function BlogRenderConstructionBlogs({data}) {
+export default function BlogRenderConstructionBlogs({data, linkPath}) {
 
     console.log('attempting to render Horizontal Blogs')
     const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -68,7 +68,8 @@ export default function BlogRenderConstructionBlogs({data}) {
                         {data.map((blog: Blog) => (
                             <div key={blog.id} className="  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                                 <div className="p-5 min-w-[300px] min-h-[50vh] max-w-[50px] max-h-[50px] overflow-y-auto">
-                                    <Link href={`/AdminDash/EditBlogByID/${blog.id}`}>
+                                    {/* we need to pass the /adminDassh schema in as aprop to make this component even more reusable */}
+                                    <Link href={`${linkPath}/${blog.id}`}> 
                                     <div className="mb-3 font-normal text-gray-700 dark:text-gray-400 prose prose-sm">
                                         <ReactMarkdown>{blog.MarkdownContent}</ReactMarkdown>
                                     </div>
