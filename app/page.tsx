@@ -4,27 +4,12 @@ import fs from "fs";
 import path from "path";
 import BlogRenderHorizontal from "@/public/components/BlongRenderHorizontal";
 import { projectURLS } from "@/pwncontracting.config";
+import { serverGetBlogs } from "@/services/queries";
 
-
-interface Blog {
-  id: string;
-  Title: string;
-  BlogType: string;
-  MarkdownContent: string;
-}
-
-async function serverGetBlogs() {
-  console.log('about to fetch serverBlogs')
-  const res = await fetch(projectURLS().pythonMongoDBServer)
-  console.log('we just got a res response')
-  const data = await res.json()
-  const filteredData = data.filter((blog: Blog) => blog.BlogType === "Construction")
-  return filteredData
-}
 
 export default async function Home() {
-  console.log('hit promo')
   const constructionBlogs = await serverGetBlogs()
+
   const mainBlog = constructionBlogs[0]
 
   // const filePath = path.join(process.cwd(), "public", "VettingSubContractors.md");

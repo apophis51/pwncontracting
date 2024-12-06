@@ -1,32 +1,15 @@
 import ReactMarkdown from 'react-markdown';
+import { serverGetBlogsByID } from '@/services/queries';
 
-import { projectURLS } from '@/pwncontracting.config'
-
-
-async function serverGetBlogs() {
-
-    console.log('about to fetch serverBlogs')
-    const res = await fetch(projectURLS().pythonMongoDBServer)
-    console.log('we just got a res response')
-    const data = await res.json()
-    return data
-}
-
-
-export default async function Page({ params }) {
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
 
     const myParamsID = (await params).id
-    console.log("params", myParamsID)
-    const data = await serverGetBlogs()
-    console.log("data", data)
-    console.log(data.find((blog) => blog.id == myParamsID ))
+    const data = await serverGetBlogsByID(myParamsID)
 
-    // const data = serverGetBlogs({ params })
-    // const { id } = await params
 
     return (
         <div className="bg-white p-10 px-80 prose prose-md max-w-none">
-            <ReactMarkdown>{data.find((blog) => blog.id == myParamsID ).MarkdownContent}</ReactMarkdown>
+            <ReactMarkdown>{data.MarkdownContent}</ReactMarkdown>
         </div>
     );
 }
