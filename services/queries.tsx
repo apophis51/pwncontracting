@@ -14,7 +14,7 @@ interface Blog {
   } 
 
   export async function serverGetBlogs() {
-    const res = await fetch(projectURLS().pythonMongoDBServer, { cache: 'force-cache' })
+    const res = await fetch(projectURLS().pythonMongoDBServer, { cache: "force-cache" , next: { revalidate: 3600, tags: ["blogs"] } }) // this will keep the cache for 1 hour
     const data = await res.json()
     const filteredData = data.filter((blog: Blog) => blog.BlogType === "Construction")
     return filteredData
