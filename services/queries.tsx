@@ -7,6 +7,11 @@ interface Blog {
     MarkdownContent: string;
   }
   
+  export async function serverGetBlogsByTitle(Title: string) {
+    const data = await serverGetBlogs()
+    const filteredData = data.find((blog: Blog) => blog.Title.replace(/\s+/g, '-').toLowerCase() === Title)
+    return filteredData
+  } 
   export async function serverGetBlogsByID(ID) {
     const data = await serverGetBlogs()
     const filteredData = data.find((blog: Blog) => blog.id === ID)

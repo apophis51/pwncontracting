@@ -69,8 +69,8 @@ export default function BlogRenderConstructionBlogs({ data, linkPath }) {
                         <div key={blog.id} className="  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <div className="p-5 min-w-[300px] min-h-[50vh] max-w-[50px] max-h-[50px] overflow-y-auto">
                                 {/* we need to pass the /adminDassh schema in as aprop to make this component even more reusable */}
-                                {/* <Link href={`${linkPath}/${blog.Title.replace(/\s+/g, '-').toLowerCase()}`}> */}
-                                <Link href={`${linkPath}/${blog.id}`}> 
+                                <Link href={`${linkPath}/${blog.Title.replace(/\s+/g, '-').toLowerCase()}`}>
+                                {/* <Link href={`${linkPath}/${blog.id}`}>  */}
                                     {/* \s+: Matches one or more whitespace characters.
 g: Global flag ensures all matches are replaced, not just the first one.
 '-': Replaces the matched spaces with dashes.
