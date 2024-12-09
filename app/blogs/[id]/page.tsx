@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
     return {
       title: data.Title || 'Blog',
-      // description: data.description
+      description: data.Description
     }
   }
 
