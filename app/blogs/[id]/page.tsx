@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     console.log(data)
 
     return {
-      title: data.Title,
+      title: data.Title || 'Blog',
       // description: data.description
     }
   }
@@ -19,6 +19,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 
     const myParamsID = await params
     const data = await serverGetBlogsByTitle(myParamsID.id)
+    console.log(data)
     // const data = await (serverGetBlogsByID(myParamsID.id))
     // console.log(data.replace(/\s+/g, '-').toLowerCase())
 
