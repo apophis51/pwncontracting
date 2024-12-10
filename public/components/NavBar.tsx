@@ -1,4 +1,6 @@
 
+import Link from 'next/link'
+
 export function NavBar() {
     return (
         <div className="navbar bg-gradient-to-r from-blue-800  to-purple-600 text-white prose prose-2xl max-w-none  malcolm-glow-border-lg malcolm-drop-shadow ">
@@ -32,7 +34,7 @@ export function NavBar() {
                         <li><a>Item 3</a></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl malcolm-hover-shadow-sm">PWNconstruction</a>
+                <Link href="/"><button className="btn btn-ghost text-xl malcolm-hover-shadow-sm text-white">PWNconstruction</button></Link> 
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
